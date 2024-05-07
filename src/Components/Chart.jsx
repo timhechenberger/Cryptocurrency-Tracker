@@ -25,7 +25,7 @@ const Chart = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=30&api_key=ccdb986ab06821f96baee562ee614f44ec55a2959324e2888ea1ed2ff3db42a2`);
-                const data = Object.values(response.data.Data.Data).map(item => ({ x: new Date(item.time), y: item.close }));
+                const data = Object.values(response.data.Data.Data).map(item => ({ x: new Date(item.time * 1000), y: item.close }));
                 setChartData(data);
             } catch (error) {
                 console.error("Error fetching data:", error);
