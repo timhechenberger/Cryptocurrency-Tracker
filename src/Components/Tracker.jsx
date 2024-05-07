@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-//import './Tracker.css'; // Importiere die Stile für den Tracker
+
 
 const Tracker = () => {
     const [cryptoData, setCryptoData] = useState([]);
@@ -10,7 +10,8 @@ const Tracker = () => {
             try {
                 const response = await axios.get('https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD', {
                     params: {
-                        api_key: 'ccdb986ab06821f96baee562ee614f44ec55a2959324e2888ea1ed2ff3db42a2' // CryptoCompare API-Schlüssel
+                        // CryptoCompare API-Schlüssel | https://min-api.cryptocompare.com/documentation
+                        api_key: 'ccdb986ab06821f96baee562ee614f44ec55a2959324e2888ea1ed2ff3db42a2' 
                     }
                 });
 
@@ -35,6 +36,7 @@ const Tracker = () => {
         fetchData();
     }, []);
 
+    //Ausgabe
     return (
         <div id="tracker-container">
              <h2>Tracked-Coins (Top 10)</h2>
@@ -47,7 +49,7 @@ const Tracker = () => {
                         <th>Handelsvolumen (24h)</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> 
                     {cryptoData.map((crypto, index) => (
                         <tr key={index}>
                             <td>{crypto.name}</td>

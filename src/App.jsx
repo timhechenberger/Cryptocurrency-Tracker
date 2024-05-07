@@ -5,9 +5,9 @@ import Chart from './Components/Chart';
 function App() {
   return (
       <main>
-          <Header/>
-          <Tracker/>
-          <Chart/> 
+         <Header/>
+         <Tracker/>
+         <Chart/> 
       </main>
   );
 }
