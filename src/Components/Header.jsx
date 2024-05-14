@@ -1,4 +1,4 @@
-import logo_tracker from '../logo-tracker.jpg'
+import logo_tracker from '../logo-tracker.jpg' // Generiert von Copilot
 
 const Header = () => {
     return (

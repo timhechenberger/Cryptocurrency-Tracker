@@ -37,10 +37,12 @@ body {
   table-layout: fixed;
   border-spacing: 1rem;
   text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.99rem;
 }
 
 #tracker-container table {
-  width: 100%;
+  width: 107.4%;
   border-collapse: collapse;
   background-color: gray;
 }
@@ -48,9 +50,4 @@ body {
 #tracker-container thead {
   font-size: 1rem;
   color: #83e6c0;
-}
-
-#tracker-container {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 0.99rem;
 }
