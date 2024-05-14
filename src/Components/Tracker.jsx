@@ -18,7 +18,7 @@ const Tracker = () => {
                 // Anzeige aller verfügbaren Variablen in der Konsole
                 console.log("Verfügbare Variablen der API:", Object.keys(response.data.Data[0]));
 
-                // Extrahiere die relevanten Daten und wandele das Objekt in ein Array um
+                // Extrahiere die relevanten Daten und wandele das Dictionary in ein Array um
                 const data = Object.values(response.data.Data).map(item => ({
                     name: item.CoinInfo.FullName,
                     price: item.RAW.USD.PRICE,
