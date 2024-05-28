@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-
+import Header from "./Header";
+import { Link } from "react-router-dom"; 
 
 const Tracker = () => {
     const [cryptoData, setCryptoData] = useState([]);
@@ -35,10 +36,11 @@ const Tracker = () => {
 
         fetchData();
     }, []);
-
+    
     //Ausgabe
     return (
         <div id="tracker-container">
+            <Header/>
              <h2>Tracked-Coins (Top 10)</h2>
             <table>
                 <thead> 
@@ -60,6 +62,7 @@ const Tracker = () => {
                     ))}
                 </tbody>
             </table>
+            <Link to="/">Zurück zur Startseite</Link>
         </div>
     );
 }

@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2'; // chart.js
-import { Chart as ChartJS, TimeScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import 'chartjs-adapter-date-fns'; // adapter for using date-fns with chart.js
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, TimeScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
+import 'chartjs-adapter-date-fns';
+import Header from './Header';
+import { Link } from "react-router-dom";
 
 //Cart components
 ChartJS.register(
@@ -12,7 +14,8 @@ ChartJS.register(
     LineElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    Filler
 );
 
 //https://react-chartjs-2.js.org/components/line -> chart.js
@@ -29,6 +32,7 @@ const Chart = () => {
     useEffect(() => {
         const fetchCoinList = async () => {
             try {
+                // CryptoCompare API-Schlüssel | https://min-api.cryptocompare.com/documentation
                 const response = await axios.get('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD&api_key=ccdb986ab06821f96baee562ee614f44ec55a2959324e2888ea1ed2ff3db42a2');
                 //Extrahiere daten
                 const coins = response.data.Data.map(item => ({
@@ -75,7 +79,8 @@ const Chart = () => {
 
     // render component
     return (
-        <>
+        <>  
+        <Header/>
             <div style={{ width: '20%' ,margin: 'auto', marginTop: '1.5rem', textAlign: 'center', backgroundColor: 'gray' }}>
                 <label style={{ margin: '1rem', fontFamily: 'sans-serif', fontWeight: 'bold'}}>Select a coin:</label>
                 <select id="coin-select" value={selectedCoin} onChange={handleCoinChange}>
@@ -142,9 +147,15 @@ const Chart = () => {
                             }
                         }}
                     />
+                   
                 </div>
             )}
+
+            <div id="LinkChart">
+                  <Link to="/">Zurück zur Startseite</Link>
+            </div>
         </>
+
     );
 }
 
